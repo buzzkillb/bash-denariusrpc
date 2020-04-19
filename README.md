@@ -10,9 +10,9 @@ chmod +x getbalance.sh
 output:
 Denarius Balance: 1.33701337
 ```
-### dedust.sh
+### examples/dedust.sh
 ```
-everything in same folder
+everything in same folder somewhere on your PC
 cp config.conf.template config.conf
 edit to your RPC settings
 get listunspent.sh
