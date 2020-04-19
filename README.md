@@ -3,8 +3,10 @@ Bash Denarius RPC
 
 ### getbalance.sh  
 ```
+wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/config.conf.template
 cp config.conf.template config.conf
 edit to your RPC settings
+wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/getbalance.sh
 chmod +x getbalance.sh
 ./getbalance.sh
 output:
