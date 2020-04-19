@@ -13,9 +13,11 @@ Denarius Balance: 1.33701337
 ### examples/dedust.sh
 ```
 everything in same folder somewhere on your PC
+wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/config.conf.template
 cp config.conf.template config.conf
 edit to your RPC settings
-get listunspent.sh
+wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/examples/dedust.sh
+wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/listunspent.sh
 sudo apt install jq
 chmod +x listunspent.sh
 chmod +x dedust.sh
