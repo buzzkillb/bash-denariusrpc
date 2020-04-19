@@ -25,5 +25,5 @@ modify settings in dedust.sh for your coin settings (txfee!!!!)
 ./dedust.sh
 output:
 cleaned up wallet
-```
-![Denarius](/public/images/denarius.gif)
+```  
+![Denarius](https://github.com/buzzkillb/D-explorer/blob/master/public/images/denarius.gif)
