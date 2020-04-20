@@ -1,22 +1,26 @@
 #!/bin/bash
 . config.conf
+. rpc.sh
+
 txfee=0.00010001
 minimuminputs=1
 minimumbalance=0.00100000
 
+#functions used: rpc_listunspent
+
 #deduplicate addresses
-unspentaddresses=$(./listunspent.sh | jq -r '.[].address' | awk '!seen[$0]++')
+unspentaddresses=$(rpc_listunspent | jq -r '.[].address' | awk '!seen[$0]++')
 while IFS= read -r
 do
-    echo $REPLY
+    printf '%s\n' $REPLY
     #count how many inputs per address
-    txcount=$(./listunspent.sh | jq --arg ADDRESS "$REPLY" '[.[] | select(.address == $ADDRESS) | .txid ] | length')
+    txcount=$(rpc_listunspent | jq --arg ADDRESS "$REPLY" '[.[] | select(.address == $ADDRESS) | .txid ] | length')
     #echo "$txcount"
        #if address has minimuminputs then do this
        if [ "$txcount" -gt "$minimuminputs" ]; then
         echo "dedust addy: $REPLY"
         #get total balance per address
-        sumdust=$(./listunspent.sh | jq --arg ADDRESS "$REPLY" '.[] | select(.address== $ADDRESS) | .amount | tonumber ' | jq -s add |  awk {' printf "%.8f",$1'})
+        sumdust=$(rpc_listunspent | jq --arg ADDRESS "$REPLY" '.[] | select(.address== $ADDRESS) | .amount | tonumber ' | jq -s add |  awk {' printf "%.8f",$1'})
         echo "denarii dust: $sumdust"
         subtractfee=$(echo "$sumdust - $txfee" | bc)
         #echo "$subtractfee"
@@ -25,7 +29,7 @@ do
            then
      	      echo "Gonna send it!"
                 rm raw.txt
-		./listunspent.sh | jq --arg ADDRESS "$REPLY" '.[] | select(.address==$ADDRESS) | .txid,.vout ' |  (
+		rpc_listunspent | jq --arg ADDRESS "$REPLY" '.[] | select(.address==$ADDRESS) | .txid,.vout ' |  (
 		    while read txid; do
 		        read vout
 		        echo '{"txid":'$txid',"vout":'$vout'},' | tr -d ' \t\n\r\f' >> raw.txt
