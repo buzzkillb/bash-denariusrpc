@@ -20,7 +20,7 @@ chmod +x getbalance.sh
 output:
 Denarius Balance: 1.33701337
 ```
-### examples/dedust.sh
+### examples/dedust_fun.sh
 ```
 does not work on a password encrypted wallet yet
 everything in same folder somewhere on your PC
@@ -29,14 +29,23 @@ cp config.conf.template config.conf
 edit to your RPC settings
 get the rpc.sh with functions
 https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/rpc.sh
-get dedust.sh
-wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/examples/dedust.sh
+get dedust_fun.sh
+https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/examples/dedust_fun.sh
 sudo apt install jq bc
 chmod +x rpc.sh
-chmod +x dedust.sh
-modify settings in dedust.sh for your coin settings (txfee!!!!)
-./dedust.sh
+chmod +x dedust_fun.sh
+modify settings in dedust_fun.sh for your coin settings (txfee!!!!)
+./dedust_fun.sh
 output:
 cleaned up wallet
 ```  
+
+###examples/masternode_monitor.sh
+```
+requires config.conf and rpc.sh
+uses masternode RPC so should be changeable to specific coin's JSON
+chmod +x masternode_monitor.sh
+./masternode_monitor.sh
+will restart any notfound masternodes on the collateral wallet
+```
 ![Denarius](https://github.com/buzzkillb/D-explorer/blob/master/public/images/denarius.gif)
