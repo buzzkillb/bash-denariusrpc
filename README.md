@@ -1,6 +1,14 @@
 # bash-denariusrpc
 Bash Denarius RPC
 
+### denarius.conf (or yourcoin.conf in appdata directory) requires 
+```
+rpcusername=RPCUSERNAME
+rpcpassword=RPCPASSWORD
+rpcport=32369
+server=1
+```
+
 ### getbalance.sh  
 ```
 wget https://raw.githubusercontent.com/buzzkillb/bash-denariusrpc/master/config.conf.template
