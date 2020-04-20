@@ -40,7 +40,7 @@ output:
 cleaned up wallet
 ```  
 
-###examples/masternode_monitor.sh
+### examples/masternode_monitor.sh
 ```
 requires config.conf and rpc.sh
 uses masternode RPC so should be changeable to specific coin's JSON
