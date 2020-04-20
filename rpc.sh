@@ -33,3 +33,6 @@ rpc_masternode_startalias () {
 masternodeStartAlias="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"masternode\",\"params\":[\"start-alias\", \""${1}"\"]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'"
 local masternodeStartAlias
 }
+rpc_jupiterversion () {
+curl -s -d '{"jsonrpc":"1.0","id":"curltext","method":"jupiterversion","params":[]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'
+}
