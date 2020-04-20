@@ -1,4 +1,5 @@
 #!/bin/bash
 . config.conf
-unspentaddresses=$(./listunspent.sh | jq -r '.[].address' | awk '!seen[$0]++')
-echo "$unspentaddresses"
+. rpc.sh
+unspentaddresses=$(rpc_listunspent | jq -r '.[].address' | awk '!seen[$0]++')
+printf '%s\n' "${unspentaddresses}"
