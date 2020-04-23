@@ -4,11 +4,9 @@
 
 #uses functions: rpc_jupiterversion
 
-connected=$(rpc_jupiterversion | jq -r '.connected')
-jupiterlocal=$(rpc_jupiterversion | jq -r '.jupiterlocal')
-ipfspeer=$(rpc_jupiterversion | jq -r '.ipfspeer')
-ipfsversion=$(rpc_jupiterversion | jq -r '.ipfsversion')
-printf 'connected: %s\n' "${connected}"
-printf 'jupiterlocal: %s\n' "${jupiterlocal}"
-printf 'ipfspeer: %s\n' "${ipfspeer}"
-printf 'ipfsversion: %s\n' "${ipfsversion}"
+rpc_jupiterversion
+_jupiterversion=$(eval ${jupiterVersion})
+printf '%s\n' "${_jupiterversion}" | jq -r '.connected'
+printf '%s\n' "${_jupiterversion}" | jq -r '.jupiterlocal'
+printf '%s\n' "${_jupiterversion}" | jq -r '.ipfspeer'
+printf '%s\n' "${_jupiterversion}" | jq -r '.ipfsversion'
