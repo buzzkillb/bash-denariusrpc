@@ -14,7 +14,7 @@ rpc_listunspent () {
 curl -s -d '{"jsonrpc":"1.0","id":"curltext","method":"listunspent","params":[]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'
 }
 rpc_walletpassphrase () {
-walletPassPhrase="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"walletpassphrase\",\"params\":[\""${1}"\", \""${2}"\", \""${3}"\"]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}" | jq -r '.error.message'"
+walletPassPhrase="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"walletpassphrase\",\"params\":[\""${1}"\", "${2}", "${3}"]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}" | jq -r '.error.message'"
 local walletPassPhrase
 }
 rpc_createrawtransaction () {
