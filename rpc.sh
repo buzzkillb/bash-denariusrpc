@@ -41,3 +41,7 @@ rpc_jupiterversion () {
 jupiterVersion="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"jupiterversion\",\"params\":[]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'"
 local jupiterVersion
 }
+rpc_jupiter_upload () {
+jupiterUpload="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"jupiterupload\",\"params\":[\""${1}"\"]}}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'"
+local jupiterUpload
+}
