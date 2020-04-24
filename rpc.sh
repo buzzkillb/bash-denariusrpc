@@ -57,3 +57,7 @@ rpc_smsgsend () {
 smsgSend="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"smsgsend\",\"params\":[\""${1}"\", \""${2}"\", \""${3}"\"]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}" | jq -r '.result'"
 local smsgSend
 }
+rpc_smsginbox () {
+smsgInbox="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"smsginbox\",\"params\":[\""${1}"\"]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}" | jq -r '.result'"
+local smsgInbox
+}
