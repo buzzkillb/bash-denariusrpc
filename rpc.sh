@@ -17,6 +17,9 @@ rpc_proofofdata () {
 proofofData="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"proofofdata\",\"params\":[\""${1}"\"]}}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'"
 local proofofData
 }
+rpc_stop () {
+curl -s -d '{"jsonrpc":"1.0","id":"curltext","method":"stop","params":[]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}"/ | jq -r '.result'
+}
 rpc_walletpassphrase () {
 walletPassPhrase="curl -s -d '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"walletpassphrase\",\"params\":[\""${1}"\", "${2}", "${3}"]}' -H 'content-type:text/plain;' http://"${rpcusername}":"${rpcpassword}"@"${rpchost}":"${rpcport}" | jq -r '.error.message'"
 local walletPassPhrase
