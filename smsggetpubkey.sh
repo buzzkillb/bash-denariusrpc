@@ -4,7 +4,7 @@
 
 #uses functions: rpc_smsggetpubkey
 
-#options: input address in your own wallet that's sent/received coins
+#options: input address in your own wallet, doesn't need a send/receive of coins
 smsgGetPubKey=D6jievtTm6SxFPpywDa7yaAJAYMBrqh8Te
 
 rpc_smsggetpubkey "$smsgGetPubKey"
