@@ -6,7 +6,11 @@ txfee=0.00010001
 minimuminputs=1
 minimumbalance=0.00100000
 
-#functions used: rpc_listunspent rpc_createrawtransaction rpc_signrawtransaction rpc_sendrawtransaction
+password=WALLETPASS
+timeout=600
+stakingonly=false
+
+#functions used: rpc_listunspent rpc_createrawtransaction rpc_signrawtransaction rpc_sendrawtransaction rpc_walletpassphrase
 
 #deduplicate addresses
 unspentaddresses=$(rpc_listunspent | jq -r '.[].address' | awk '!seen[$0]++')
@@ -39,8 +43,15 @@ do
                 sed -i '1s/^/'$QUOTE''$QUOTE'[/' raw.txt
 		sed -i '$ s/,$//g' raw.txt
 		echo ']'$QUOTE''$QUOTE', '$QUOTE''$QUOTE'{"'$REPLY'":'$subtractfee'}'$QUOTE''$QUOTE'' | tr -d ' \t\n\r\f' >> raw.txt
+		#unlock wallet
+		rpc_walletpassphrase "$password" "$timeout" "$stakingonly"
+		_walletpassphrase=$(eval "${walletPassPhrase}")
 		#store rawtransaction
-    startrawtransaction=$(head -1 raw.txt)
+    		startrawtransaction=$(head -1 raw.txt)
+		#unlock wallet
+		rpc_walletpassphrase "$password" "$timeout" "$stakingonly"
+		_walletpassphrase=$(eval "${walletPassPhrase}")
+
 		#put startrawtransaction json into curl function command
 		rpc_createrawtransaction "${startrawtransaction}"
 		#bring full curl rpc string into _createrawtransaction
@@ -49,10 +60,18 @@ do
 		RawTX=$(echo $_createrawtransaction | jq '.result')
 		echo $RawTX
 
+		#unlock wallet
+		rpc_walletpassphrase "$password" "$timeout" "$stakingonly"
+		_walletpassphrase=$(eval "${walletPassPhrase}")
+
 		rpc_signrawtransaction "$RawTX"
 		_signrawtransaction=$(eval "${signRawTransaction}")
 		RawSIGN=$(echo $_signrawtransaction | jq '.result.hex')
 		echo $RawSIGN
+
+		#unlock wallet
+		rpc_walletpassphrase "$password" "$timeout" "$stakingonly"
+		_walletpassphrase=$(eval "${walletPassPhrase}")
 
 		rpc_sendrawtransaction "$RawSIGN"
 		_sendrawtransaction=$(eval "${sendRawTransaction}")
