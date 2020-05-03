@@ -67,8 +67,8 @@ _walletpassphrase=$(eval "${walletPassPhrase}")
 rpc_sendrawtransaction "$RawSIGN"
 _sendrawtransaction=$(eval "${sendRawTransaction}")
 
-done
 echo $_sendrawtransaction
 RawSEND=$(echo $_sendrawtransaction | jq '.result')
 echo $RawSEND
 echo "combined dust minus fee: "$subtractfee
+done
