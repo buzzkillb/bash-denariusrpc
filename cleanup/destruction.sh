@@ -4,10 +4,10 @@
 #"dumpwallet dumpwallet.txt" and put in same directory as this script
 #####################################################################
 #then run this script
-#might want staking=0 in denarius.conf until everything is done
+#might want staking=0 and fsconflock=0 in denarius.conf until everything is done
 #stop wallet, move wallet.dat to wallet.bak, open wallet, "importwallet cleaned.txt"
 #wait for rescan, "tail -f debug.log" to watch
-#once your balance shows up, stop wallet, staking=1, start wallet
+#once your balance shows up, stop wallet, staking=1 fsconflock=1, start wallet
 #DONE
 #requires config.conf and rpc.sh from https://github.com/buzzkillb/bash-denariusrpc
 ### THIS IS GOING TO PUT PRIVKEYS into a TEXTFILE, disconnecto internet or something when running ######
