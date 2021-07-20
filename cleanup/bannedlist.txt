@@ -6,14 +6,17 @@ denarius.daemon setban 124.180.21.125 add 999999999999999
 denarius.daemon setban 135.181.165.109 add 999999999999999
 denarius.daemon setban 96.252.98.225 add 999999999999999
 denarius.daemon setban 85.214.189.248 add 999999999999999
+denarius.daemon setban 96.252.98.225 add 999999999999999
+denarius.daemon setban 83.221.211.116 add 999999999999999
+denarius.daemon setban 87.244.204.164 add 999999999999999
 
 {
     "filename" : "banlist.dat",
-    "sizebytes" : 361,
-    "ipfshash" : "QmXiakSGsWgjaPq1PTZCr5vGGBpW7yp3zDgASo1VMczix4",
-    "infuralink" : "https://ipfs.infura.io/ipfs/QmXiakSGsWgjaPq1PTZCr5vGGBpW7yp3zDgASo1VMczix4",
-    "cflink" : "https://cloudflare-ipfs.com/ipfs/QmXiakSGsWgjaPq1PTZCr5vGGBpW7yp3zDgASo1VMczix4",
-    "ipfslink" : "https://ipfs.io/ipfs/QmXiakSGsWgjaPq1PTZCr5vGGBpW7yp3zDgASo1VMczix4"
+    "sizebytes" : 469,
+    "ipfshash" : "QmYn2DoQzqKFW3GppNRDrRciRo8zAi9RbV9YKU2qWKf96v",
+    "infuralink" : "https://ipfs.infura.io/ipfs/QmYn2DoQzqKFW3GppNRDrRciRo8zAi9RbV9YKU2qWKf96v",
+    "cflink" : "https://cloudflare-ipfs.com/ipfs/QmYn2DoQzqKFW3GppNRDrRciRo8zAi9RbV9YKU2qWKf96v",
+    "ipfslink" : "https://ipfs.io/ipfs/QmYn2DoQzqKFW3GppNRDrRciRo8zAi9RbV9YKU2qWKf96v"
 }
 
 possible bad/older wallets
