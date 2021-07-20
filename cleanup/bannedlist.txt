@@ -6,6 +6,15 @@ denarius.daemon setban 124.180.21.125 add 999999999999999
 denarius.daemon setban 135.181.165.109 add 999999999999999
 denarius.daemon setban 96.252.98.225 add 999999999999999
 
+{
+    "filename" : "banlist.dat",
+    "sizebytes" : 307,
+    "ipfshash" : "QmbEDor1NFEJApu8aU26gdzXtLzw3z7x2xWQQtWbzrMku5",
+    "infuralink" : "https://ipfs.infura.io/ipfs/QmbEDor1NFEJApu8aU26gdzXtLzw3z7x2xWQQtWbzrMku5",
+    "cflink" : "https://cloudflare-ipfs.com/ipfs/QmbEDor1NFEJApu8aU26gdzXtLzw3z7x2xWQQtWbzrMku5",
+    "ipfslink" : "https://ipfs.io/ipfs/QmbEDor1NFEJApu8aU26gdzXtLzw3z7x2xWQQtWbzrMku5"
+}
+
 possible bad/older wallets
 
 chainz seeing v.3.3.9.8
